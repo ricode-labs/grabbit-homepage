@@ -3,21 +3,18 @@ const downloads = [
 	{
 		platform: "Windows",
 		label: "Windows 版",
-		detail: "敬请期待 · 优先适配",
 		icon: "windows",
 		primary: true,
 	},
 	{
 		platform: "Linux",
 		label: "Linux 版",
-		detail: "敬请期待 · AppImage / Flatpak",
 		icon: "linux",
 		primary: false,
 	},
 	{
 		platform: "macOS",
 		label: "macOS 版",
-		detail: "敬请期待 · Apple Silicon / Intel",
 		icon: "apple",
 		primary: false,
 	},
@@ -25,7 +22,7 @@ const downloads = [
 
 const base = import.meta.env.BASE_URL;
 const asset = (path = "") => `${base}${path.replace(/^\/+/, "")}`;
-const iconStyles = `--icon-windows: url("${asset("windows.svg")}"); --icon-linux: url("${asset("linux.svg")}"); --icon-apple: url("${asset("apple.svg")}"); --icon-protocol: url("${asset("protocol.svg")}"); --icon-cloud-download: url("${asset("cloud-download.svg")}");`;
+const iconStyles = `--icon-windows: url("${asset("windows.svg")}"); --icon-linux: url("${asset("linux.svg")}"); --icon-apple: url("${asset("apple.svg")}"); --icon-github: url("${asset("github.svg")}"); --icon-protocol: url("${asset("protocol.svg")}"); --icon-cloud-download: url("${asset("cloud-download.svg")}");`;
 
 const features = [
 	{
@@ -91,17 +88,9 @@ const features = [
 				</a>
 
 				<div class="nav-links">
-					<a href="#features">功能</a>
-					<a href="#features">特性</a>
-					<a href="#changelog">更新日志</a>
-					<a href="#help">帮助</a>
-					<a href="https://github.com" rel="noreferrer">GitHub</a>
-					<a class="nav-download" href="#downloads" aria-label="敬请期待">
-						<svg viewBox="0 0 24 24" aria-hidden="true">
-							<path d="M12 3v9m0 0 3.5-3.5M12 12 8.5 8.5" />
-							<path d="M5 14.5c-1.35.7-2 1.76-2 3.14C3 20 4.8 21 7.05 21h9.9C19.2 21 21 20 21 17.64c0-1.38-.65-2.44-2-3.14" />
-						</svg>
-						敬请期待
+					<a class="github-link" href="https://github.com/ricode-labs/grabbit" target="_blank" rel="noreferrer">
+						<span class="github-icon" aria-hidden="true"></span>
+						<span>GitHub</span>
 					</a>
 				</div>
 			</nav>
@@ -124,10 +113,7 @@ const features = [
 								disabled
 							>
 								<span class={`platform-icon platform-icon-${download.icon}`} aria-hidden="true"></span>
-								<span>
-									<strong>{download.label}</strong>
-									<small>{download.detail}</small>
-								</span>
+								<strong>{download.label}</strong>
 							</button>
 						))}
 					</div>
@@ -332,20 +318,30 @@ const features = [
 		white-space: nowrap;
 	}
 
-	.nav-download {
+	.github-link {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		min-height: 46px;
-		border-radius: 16px;
-		padding: 0 18px;
-		background: linear-gradient(180deg, var(--brand-pink), var(--brand-pink-soft));
 		color: var(--ink);
-		font-weight: 800;
-		box-shadow: 0 12px 26px color-mix(in srgb, var(--brand-pink) 44%, transparent);
+		font-weight: 700;
 	}
 
-	.nav-download svg,
+	.github-icon {
+		display: block;
+		flex: 0 0 auto;
+		width: 24px;
+		height: 24px;
+		background: currentColor;
+		mask-image: var(--icon-github);
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		-webkit-mask-image: var(--icon-github);
+		-webkit-mask-position: center;
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-size: contain;
+	}
+
 	.feature-icon svg {
 		width: 20px;
 		height: 20px;
@@ -449,21 +445,13 @@ const features = [
 		grid-column: 1 / -1;
 	}
 
-	.download-button strong,
-	.download-button small {
+	.download-button strong {
 		display: block;
 	}
 
 	.download-button strong {
-		margin-bottom: 4px;
 		font-size: 1rem;
 		font-weight: 800;
-	}
-
-	.download-button small {
-		font-size: 0.72rem;
-		white-space: nowrap;
-		opacity: 0.86;
 	}
 
 	.platform-icon {
@@ -924,10 +912,6 @@ const features = [
 			align-items: flex-start;
 		}
 
-		.nav-links a:not(.nav-download) {
-			display: none;
-		}
-
 		.hero {
 			padding-top: 38px;
 		}
@@ -1007,13 +991,6 @@ const features = [
 
 		.brand {
 			font-size: 1.4rem;
-		}
-
-		.nav-download {
-			min-height: 42px;
-			border-radius: 14px;
-			padding: 0 13px;
-			font-size: 0.86rem;
 		}
 
 		.hero-copy h1 {
