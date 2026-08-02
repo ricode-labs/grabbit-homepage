@@ -1,19 +1,21 @@
 # Grabbit
 
-Grabbit is a cute desktop download manager with a soft, friendly web homepage for GitHub Pages.
+Grabbit is a desktop download manager designed to feel polished, approachable, and efficient from the first glance.
 
-Homepage: https://grabbit-homepage.github.io/grabbit-homepage/
+Homepage: https://ricode-labs.github.io/grabbit-homepage/
 
 ## Features
 
-- Multi-protocol support: HTTP/HTTPS, FTP, BitTorrent, Magnet
-- Fast downloads with task management and pause/resume
-- Clean, transparent, and lightweight interface
-- Platform coverage for Windows, Linux, and macOS
+- Multi-protocol downloading for HTTP/HTTPS, FTP, BitTorrent, and Magnet links
+- High-speed transfer with task management and pause/resume workflow
+- Reliable breakpoint resume for interrupted downloads
+- Clean interface focused on clarity, control, and day-to-day use
+- Native builds planned for Windows, Linux, and macOS
 
 ## Site
 
-This repository contains the GitHub Pages homepage for the app.
+This repository contains the GitHub Pages homepage for the Grabbit product.
+The site presents the product direction, core features, and platform availability in a format suitable for public sharing.
 
 ## Build
 
@@ -22,4 +24,4 @@ pnpm install
 pnpm build
 ```
 
-The static site is generated in `dist/`.
+The static site is generated in `dist/` and is ready for GitHub Pages deployment.

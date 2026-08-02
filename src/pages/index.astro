@@ -2,29 +2,30 @@
 const downloads = [
 	{
 		platform: "Windows",
-		label: "下载 Windows 版",
-		detail: "v1.2.0 · 64-bit · 78.6 MB",
-		href: "#downloads",
+		label: "Windows 版",
+		detail: "敬请期待 · 优先适配",
 		icon: "windows",
 		primary: true,
 	},
 	{
 		platform: "Linux",
-		label: "下载 Linux 版",
-		detail: "v1.2.0 · AppImage",
-		href: "#downloads",
+		label: "Linux 版",
+		detail: "敬请期待 · AppImage / Flatpak",
 		icon: "linux",
 		primary: false,
 	},
 	{
 		platform: "macOS",
-		label: "下载 macOS 版",
-		detail: "v1.2.0 · Apple Silicon / Intel",
-		href: "#downloads",
+		label: "macOS 版",
+		detail: "敬请期待 · Apple Silicon / Intel",
 		icon: "apple",
 		primary: false,
 	},
 ];
+
+const base = import.meta.env.BASE_URL;
+const asset = (path = "") => `${base}${path.replace(/^\/+/, "")}`;
+const iconStyles = `--icon-windows: url("${asset("windows.svg")}"); --icon-linux: url("${asset("linux.svg")}"); --icon-apple: url("${asset("apple.svg")}"); --icon-protocol: url("${asset("protocol.svg")}"); --icon-cloud-download: url("${asset("cloud-download.svg")}");`;
 
 const features = [
 	{
@@ -72,7 +73,7 @@ const features = [
 <html lang="zh-CN">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/webp" href="/favicon.webp?v=2" />
+		<link rel="icon" type="image/webp" href={asset("favicon.webp?v=2")} />
 		<meta name="viewport" content="width=device-width" />
 		<meta
 			name="description"
@@ -81,11 +82,11 @@ const features = [
 		<meta name="generator" content={Astro.generator} />
 		<title>grabbit - 轻松下载，一切尽在 grabbit</title>
 	</head>
-	<body>
+	<body style={iconStyles}>
 		<main class="page-shell">
 			<nav class="topbar" aria-label="主导航">
-				<a class="brand" href="/" aria-label="grabbit 首页">
-					<img src="/logo.svg" alt="" width="36" height="36" />
+				<a class="brand" href={asset("")} aria-label="grabbit 首页">
+					<img src={asset("logo.svg")} alt="" width="36" height="36" />
 					<span>grabbit</span>
 				</a>
 
@@ -95,12 +96,12 @@ const features = [
 					<a href="#changelog">更新日志</a>
 					<a href="#help">帮助</a>
 					<a href="https://github.com" rel="noreferrer">GitHub</a>
-					<a class="nav-download" href="#downloads" aria-label="立即下载">
+					<a class="nav-download" href="#downloads" aria-label="敬请期待">
 						<svg viewBox="0 0 24 24" aria-hidden="true">
 							<path d="M12 3v9m0 0 3.5-3.5M12 12 8.5 8.5" />
 							<path d="M5 14.5c-1.35.7-2 1.76-2 3.14C3 20 4.8 21 7.05 21h9.9C19.2 21 21 20 21 17.64c0-1.38-.65-2.44-2-3.14" />
 						</svg>
-						立即下载
+						敬请期待
 					</a>
 				</div>
 			</nav>
@@ -112,26 +113,27 @@ const features = [
 						<span>一切尽在 <em>grabbit</em></span>
 					</h1>
 					<p class="hero-lede">
-						简洁可爱的桌面下载工具，支持多协议下载、任务管理、断点续传，让下载变得更高效有趣。
+						简洁可爱的桌面下载工具，支持多协议下载、任务管理、断点续传。首个公开版本仍在准备中，下载入口暂未开放。
 					</p>
 
 					<div class="download-actions" id="downloads" aria-label="下载入口">
 						{downloads.map((download) => (
-							<a
+							<button
 								class:list={["download-button", download.primary && "download-button-primary"]}
-								href={download.href}
+								type="button"
+								disabled
 							>
 								<span class={`platform-icon platform-icon-${download.icon}`} aria-hidden="true"></span>
 								<span>
 									<strong>{download.label}</strong>
 									<small>{download.detail}</small>
 								</span>
-							</a>
+							</button>
 						))}
 					</div>
 
 					<p class="support-note">
-						<img src="/logo.svg" alt="" width="22" height="22" />
+						<img src={asset("logo.svg")} alt="" width="22" height="22" />
 						支持 Windows 10+ / macOS 11+ / Linux
 					</p>
 				</div>
@@ -139,14 +141,14 @@ const features = [
 				<div class="app-preview" aria-label="grabbit 应用界面预览">
 					<div class="screenshot-shell">
 						<div class="screenshot-titlebar">
-							<img src="/logo.svg" alt="" width="30" height="30" />
+							<img src={asset("logo.svg")} alt="" width="30" height="30" />
 							<strong>grabbit</strong>
 							<div class="screenshot-controls" aria-hidden="true">
 								<span></span><span></span><span></span>
 							</div>
 						</div>
 						<div class="screenshot-placeholder">
-							<img src="/sidebar-bg.webp" alt="" width="230" height="180" />
+							<img src={asset("sidebar-bg.webp")} alt="" width="230" height="180" />
 							<div>
 								<strong>软件截图占位</strong>
 								<span>后续替换为真实 grabbit 截图</span>
@@ -188,7 +190,7 @@ const features = [
 								<h3>{feature.title}</h3>
 								<p>{feature.body}</p>
 							</div>
-							<img src={feature.image} alt="" width="170" height="170" />
+							<img src={asset(feature.image)} alt="" width="170" height="170" />
 							<span class="flower flower-left" aria-hidden="true"></span>
 							<span class="flower flower-right" aria-hidden="true"></span>
 						</article>
@@ -197,7 +199,7 @@ const features = [
 			</section>
 
 			<section class="closing" id="help" aria-labelledby="closing-title">
-				<img src="/paused.webp" alt="" width="210" height="210" />
+				<img src={asset("paused.webp")} alt="" width="210" height="210" />
 				<div>
 					<h2 id="closing-title">让每一次下载，<br />都变成一件愉快的小事。</h2>
 					<p>
@@ -205,7 +207,7 @@ const features = [
 						把想要的都轻松 <span>grab</span> 住
 					</p>
 				</div>
-				<img src="/downloaded.webp" alt="" width="210" height="210" />
+				<img src={asset("downloaded.webp")} alt="" width="210" height="210" />
 			</section>
 
 			<div id="changelog" class="sr-only">更新日志</div>
@@ -419,14 +421,20 @@ const features = [
 		font-family:
 			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
 		box-shadow: 0 14px 35px color-mix(in srgb, var(--brand-brown) 8%, transparent);
+		cursor: pointer;
 		transition:
 			transform 160ms ease,
 			box-shadow 160ms ease;
 	}
 
-	.download-button:hover {
+	.download-button:hover:not(:disabled) {
 		transform: translateY(-2px);
 		box-shadow: 0 18px 36px color-mix(in srgb, var(--brand-brown) 14%, transparent);
+	}
+
+	.download-button:disabled {
+		cursor: not-allowed;
+		opacity: 0.86;
 	}
 
 	.download-button-primary {
@@ -473,18 +481,18 @@ const features = [
 	}
 
 	.platform-icon-windows {
-		mask-image: url("/windows.svg");
-		-webkit-mask-image: url("/windows.svg");
+		mask-image: var(--icon-windows);
+		-webkit-mask-image: var(--icon-windows);
 	}
 
 	.platform-icon-linux {
-		mask-image: url("/linux.svg");
-		-webkit-mask-image: url("/linux.svg");
+		mask-image: var(--icon-linux);
+		-webkit-mask-image: var(--icon-linux);
 	}
 
 	.platform-icon-apple {
-		mask-image: url("/apple.svg");
-		-webkit-mask-image: url("/apple.svg");
+		mask-image: var(--icon-apple);
+		-webkit-mask-image: var(--icon-apple);
 	}
 
 	.support-note {
@@ -744,13 +752,13 @@ const features = [
 	}
 
 	.asset-icon-protocol {
-		mask-image: url("/protocol.svg");
-		-webkit-mask-image: url("/protocol.svg");
+		mask-image: var(--icon-protocol);
+		-webkit-mask-image: var(--icon-protocol);
 	}
 
 	.asset-icon-cloud-download {
-		mask-image: url("/cloud-download.svg");
-		-webkit-mask-image: url("/cloud-download.svg");
+		mask-image: var(--icon-cloud-download);
+		-webkit-mask-image: var(--icon-cloud-download);
 	}
 
 	.feature-copy {
