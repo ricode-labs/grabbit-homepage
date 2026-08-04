@@ -1,20 +1,199 @@
 ---
+const messages = {
+	en: {
+		htmlLang: "en",
+		title: "grabbit - Download made easy",
+		description:
+			"grabbit is a clean, cute desktop download tool with multi-protocol downloads, task management, resume support, and live speed stats.",
+		nav: {
+			primary: "Main navigation",
+			home: "grabbit home",
+			github: "GitHub",
+			language: "Language",
+		},
+		hero: {
+			title: 'Download with ease,<br />everything you need in <em>grabbit</em>',
+			lede:
+				"A clean, cute desktop download tool with multi-protocol downloads, task management, and resume support. The first public release is still in preparation, so downloads are not open yet.",
+			downloadsLabel: "Download options",
+			support: "Windows 10+ / macOS 11+ / Linux",
+			previewLabel: "grabbit app preview",
+		},
+		screenshot: {
+			title: "grabbit",
+			placeholderTitle: "Screenshot placeholder",
+			placeholderText: "Will be replaced with a real grabbit screenshot later.",
+		},
+		downloadLabels: {
+			windows: "Windows",
+			linux: "Linux",
+			macos: "macOS",
+		},
+		featuresTitle: 'Why choose <em>grabbit</em>?',
+		features: [
+			{
+				title: "Multi-protocol support",
+				body: "Supports HTTP/HTTPS, FTP, BitTorrent, Magnet, and more.",
+			},
+			{
+				title: "Fast downloads",
+				body: "Multi-threaded acceleration and smart resource allocation to fully use your bandwidth.",
+			},
+			{
+				title: "Resume support",
+				body: "Interrupted? Continue from where you left off without wasting progress.",
+			},
+			{
+				title: "Task management",
+				body: "Clear lists, categories, sorting, and batch actions keep everything in order.",
+			},
+			{
+				title: "Clean and safe",
+				body: "No ads, no bundles, open and transparent, with your privacy and data protected.",
+			},
+		],
+		closing: {
+			title: "Make every download,<br />feel easy and pleasant.",
+			body: 'grabbit stays with you,<br />helping you <span>grab</span> what you want with ease.',
+		},
+		changelog: "Changelog",
+	},
+	zh: {
+		htmlLang: "zh-CN",
+		title: "grabbit - 轻松下载，一切尽在 grabbit",
+		description:
+			"grabbit 是一款简洁可爱的桌面下载工具，支持多协议下载、任务管理、断点续传和实时速度统计。",
+		nav: {
+			primary: "主导航",
+			home: "grabbit 首页",
+			github: "GitHub",
+			language: "语言",
+		},
+		hero: {
+			title: '轻松下载,<br />一切尽在 <em>grabbit</em>',
+			lede: "简洁可爱的桌面下载工具，支持多协议下载、任务管理、断点续传。首个公开版本仍在准备中，下载入口暂未开放。",
+			downloadsLabel: "下载入口",
+			support: "支持 Windows 10+ / macOS 11+ / Linux",
+			previewLabel: "grabbit 应用界面预览",
+		},
+		screenshot: {
+			title: "grabbit",
+			placeholderTitle: "软件截图占位",
+			placeholderText: "后续会替换成真实的 grabbit 截图。",
+		},
+		downloadLabels: {
+			windows: "Windows 版",
+			linux: "Linux 版",
+			macos: "macOS 版",
+		},
+		featuresTitle: '为什么选择 <em>grabbit</em>？',
+		features: [
+			{
+				title: "多协议支持",
+				body: "支持 HTTP/HTTPS、FTP、BitTorrent、Magnet 等多种下载协议。",
+			},
+			{
+				title: "高速下载",
+				body: "多线程加速，智能分配资源，充分利用你的网络带宽。",
+			},
+			{
+				title: "断点续传",
+				body: "意外中断？没关系！从上次中断处继续，不浪费任何进度。",
+			},
+			{
+				title: "任务管理",
+				body: "清晰的任务列表，支持分类、排序、批量操作，一切井井有条。",
+			},
+			{
+				title: "纯净安全",
+				body: "无广告、无捆绑，开源透明，保护你的隐私与数据安全。",
+			},
+		],
+		closing: {
+			title: "让每一次下载，<br />都变成一件愉快的小事。",
+			body: 'grabbit 陪你一起，<br />把想要的都轻松 <span>grab</span> 住。',
+		},
+		changelog: "更新日志",
+	},
+	ja: {
+		htmlLang: "ja-JP",
+		title: "grabbit - かんたんダウンロード",
+		description:
+			"grabbit は、マルチプロトコルダウンロード、タスク管理、再開対応、リアルタイム速度表示を備えた、シンプルでかわいいデスクトップダウンローダーです。",
+		nav: {
+			primary: "メインナビゲーション",
+			home: "grabbit ホーム",
+			github: "GitHub",
+			language: "言語",
+		},
+		hero: {
+			title: 'かんたんにダウンロード、<br />すべてが <em>grabbit</em> に',
+			lede: "シンプルでかわいいデスクトップダウンローダー。マルチプロトコルのダウンロード、タスク管理、再開対応を備えています。初回公開版は準備中のため、ダウンロードはまだ開始していません。",
+			downloadsLabel: "ダウンロード項目",
+			support: "Windows 10+ / macOS 11+ / Linux",
+			previewLabel: "grabbit アプリのプレビュー",
+		},
+		screenshot: {
+			title: "grabbit",
+			placeholderTitle: "スクリーンショットの仮置き",
+			placeholderText: "後で実際の grabbit 画面に差し替えます。",
+		},
+		downloadLabels: {
+			windows: "Windows版",
+			linux: "Linux版",
+			macos: "macOS版",
+		},
+		featuresTitle: 'なぜ <em>grabbit</em> なのか？',
+		features: [
+			{
+				title: "マルチプロトコル対応",
+				body: "HTTP/HTTPS、FTP、BitTorrent、Magnet など、さまざまなダウンロード方式に対応します。",
+			},
+			{
+				title: "高速ダウンロード",
+				body: "マルチスレッド加速と賢いリソース配分で、回線をしっかり使い切れます。",
+			},
+			{
+				title: "再開対応",
+				body: "中断しても大丈夫。途中から再開でき、進捗を無駄にしません。",
+			},
+			{
+				title: "タスク管理",
+				body: "見やすい一覧、分類、並び替え、一括操作で、作業を整理しやすくします。",
+			},
+			{
+				title: "クリーンで安全",
+				body: "広告なし、同梱なし。オープンで透明性があり、プライバシーとデータを守ります。",
+			},
+		],
+		closing: {
+			title: "すべてのダウンロードを、<br />もっと気持ちよく。",
+			body: 'grabbit はいつもそばにいて、<br />欲しいものを気軽に <span>grab</span> できるようにします。',
+		},
+		changelog: "更新履歴",
+	},
+};
+
+const defaultMessages = messages.en;
+const localeNames = {
+	en: "English",
+	zh: "中文",
+	ja: "日本語",
+};
+
 const downloads = [
 	{
-		platform: "Windows",
-		label: "Windows 版",
+		key: "windows",
 		icon: "windows",
 		primary: true,
 	},
 	{
-		platform: "Linux",
-		label: "Linux 版",
+		key: "linux",
 		icon: "linux",
 		primary: false,
 	},
 	{
-		platform: "macOS",
-		label: "macOS 版",
+		key: "macos",
 		icon: "apple",
 		primary: false,
 	},
@@ -26,38 +205,38 @@ const iconStyles = `--icon-windows: url("${asset("windows.svg")}"); --icon-linux
 
 const features = [
 	{
-		title: "多协议支持",
-		body: "支持 HTTP/HTTPS、FTP、BitTorrent、Magnet 等多种下载协议。",
+		titleKey: "features.0.title",
+		bodyKey: "features.0.body",
 		image: "/pending.webp",
 		icon: "cloud",
 		iconAsset: "protocol",
 		tone: "pink",
 	},
 	{
-		title: "高速下载",
-		body: "多线程加速，智能分配资源，充分利用你的网络带宽。",
+		titleKey: "features.1.title",
+		bodyKey: "features.1.body",
 		image: "/downloading.webp",
 		icon: "bolt",
 		tone: "stone",
 	},
 	{
-		title: "断点续传",
-		body: "意外中断？没关系！从上次中断处继续，不浪费任何进度。",
+		titleKey: "features.2.title",
+		bodyKey: "features.2.body",
 		image: "/paused.webp",
 		icon: "upload",
 		iconAsset: "cloud-download",
 		tone: "orange",
 	},
 	{
-		title: "任务管理",
-		body: "清晰的任务列表，支持分类、排序、批量操作，一切井井有条。",
+		titleKey: "features.3.title",
+		bodyKey: "features.3.body",
 		image: "/pending.webp",
 		icon: "list",
 		tone: "green",
 	},
 	{
-		title: "纯净安全",
-		body: "无广告、无捆绑，开源透明，保护你的隐私与数据安全。",
+		titleKey: "features.4.title",
+		bodyKey: "features.4.body",
 		image: "/downloaded.webp",
 		icon: "shield",
 		tone: "brown",
@@ -67,45 +246,86 @@ const features = [
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/webp" href={asset("favicon.webp?v=2")} />
 		<meta name="viewport" content="width=device-width" />
-		<meta
-			name="description"
-			content="grabbit 是一款简洁可爱的桌面下载工具，支持多协议下载、任务管理、断点续传和实时速度统计。"
-		/>
+		<meta name="description" content={defaultMessages.description} />
 		<meta name="generator" content={Astro.generator} />
-		<title>grabbit - 轻松下载，一切尽在 grabbit</title>
+		<title>{defaultMessages.title}</title>
 	</head>
 	<body style={iconStyles}>
 		<main class="page-shell">
-			<nav class="topbar" aria-label="主导航">
-				<a class="brand" href={asset("")} aria-label="grabbit 首页">
+			<nav
+				class="topbar"
+				aria-label={defaultMessages.nav.primary}
+				data-i18n="nav.primary"
+				data-i18n-mode="attr"
+				data-i18n-attr="aria-label"
+			>
+				<a
+					class="brand"
+					href={asset("")}
+					aria-label={defaultMessages.nav.home}
+					data-i18n="nav.home"
+					data-i18n-mode="attr"
+					data-i18n-attr="aria-label"
+				>
 					<img src={asset("logo.svg")} alt="" width="36" height="36" />
 					<span>grabbit</span>
 				</a>
 
 				<div class="nav-links">
+					<details class="lang-switcher" data-language-switcher>
+						<summary
+							class="lang-switcher-button"
+							aria-label={defaultMessages.nav.language}
+							data-i18n="nav.language"
+							data-i18n-mode="attr"
+							data-i18n-attr="aria-label"
+						>
+							<span class="lang-switcher-icon" aria-hidden="true">
+								<svg viewBox="0 0 24 24">
+									<circle cx="12" cy="12" r="9"></circle>
+									<path d="M3 12h18M12 3c3.2 3.5 3.2 14.5 0 18M12 3c-3.2 3.5-3.2 14.5 0 18"></path>
+								</svg>
+							</span>
+						</summary>
+						<div class="lang-switcher-menu" aria-label={defaultMessages.nav.language}>
+							{Object.entries(localeNames).map(([locale, label]) => (
+								<button
+									class="lang-switcher-option"
+									type="button"
+									data-locale-option
+									data-locale={locale}
+									aria-pressed={locale === "en" ? "true" : "false"}
+								>
+									<span>{label}</span>
+								</button>
+							))}
+						</div>
+					</details>
 					<a class="github-link" href="https://github.com/ricode-labs/grabbit" target="_blank" rel="noreferrer">
 						<span class="github-icon" aria-hidden="true"></span>
-						<span>GitHub</span>
+						<span data-i18n="nav.github">{defaultMessages.nav.github}</span>
 					</a>
 				</div>
 			</nav>
 
 			<section class="hero" aria-labelledby="hero-title">
 				<div class="hero-copy">
-					<h1 id="hero-title">
-						轻松下载，
-						<span>一切尽在 <em>grabbit</em></span>
-					</h1>
-					<p class="hero-lede">
-						简洁可爱的桌面下载工具，支持多协议下载、任务管理、断点续传。首个公开版本仍在准备中，下载入口暂未开放。
-					</p>
+					<h1 id="hero-title" data-i18n="hero.title" data-i18n-mode="html" set:html={defaultMessages.hero.title}></h1>
+					<p class="hero-lede" data-i18n="hero.lede">{defaultMessages.hero.lede}</p>
 
-					<div class="download-actions" id="downloads" aria-label="下载入口">
+					<div
+						class="download-actions"
+						id="downloads"
+						aria-label={defaultMessages.hero.downloadsLabel}
+						data-i18n="hero.downloadsLabel"
+						data-i18n-mode="attr"
+						data-i18n-attr="aria-label"
+					>
 						{downloads.map((download) => (
 							<button
 								class:list={["download-button", download.primary && "download-button-primary"]}
@@ -113,22 +333,29 @@ const features = [
 								disabled
 							>
 								<span class={`platform-icon platform-icon-${download.icon}`} aria-hidden="true"></span>
-								<strong>{download.label}</strong>
+								<strong data-i18n={`downloadLabels.${download.key}`}>
+									{defaultMessages.downloadLabels[download.key]}
+								</strong>
 							</button>
 						))}
 					</div>
 
-					<p class="support-note">
-						<img src={asset("logo.svg")} alt="" width="22" height="22" />
-						支持 Windows 10+ / macOS 11+ / Linux
+					<p class="support-note" data-i18n="hero.support">
+						{defaultMessages.hero.support}
 					</p>
 				</div>
 
-				<div class="app-preview" aria-label="grabbit 应用界面预览">
+				<div
+					class="app-preview"
+					aria-label={defaultMessages.hero.previewLabel}
+					data-i18n="hero.previewLabel"
+					data-i18n-mode="attr"
+					data-i18n-attr="aria-label"
+				>
 					<div class="screenshot-shell">
 						<div class="screenshot-titlebar">
 							<img src={asset("logo.svg")} alt="" width="30" height="30" />
-							<strong>grabbit</strong>
+							<strong>{defaultMessages.screenshot.title}</strong>
 							<div class="screenshot-controls" aria-hidden="true">
 								<span></span><span></span><span></span>
 							</div>
@@ -136,8 +363,8 @@ const features = [
 						<div class="screenshot-placeholder">
 							<img src={asset("sidebar-bg.webp")} alt="" width="230" height="180" />
 							<div>
-								<strong>软件截图占位</strong>
-								<span>后续替换为真实 grabbit 截图</span>
+								<strong data-i18n="screenshot.placeholderTitle">{defaultMessages.screenshot.placeholderTitle}</strong>
+								<span data-i18n="screenshot.placeholderText">{defaultMessages.screenshot.placeholderText}</span>
 							</div>
 						</div>
 					</div>
@@ -147,12 +374,12 @@ const features = [
 			<section class="features" id="features" aria-labelledby="features-title">
 				<h2 id="features-title">
 					<span>✿</span>
-					为什么选择 <em>grabbit</em>？
+					<span data-i18n="featuresTitle" data-i18n-mode="html" set:html={defaultMessages.featuresTitle}></span>
 					<span>✿</span>
 				</h2>
 
 				<div class="feature-grid">
-					{features.map((feature) => (
+					{features.map((feature, index) => (
 						<article class:list={["feature-card", feature.wide && "feature-card-wide"]}>
 							<div class={`feature-icon feature-icon-${feature.tone}`} aria-hidden="true">
 								{feature.iconAsset && <span class={`asset-icon asset-icon-${feature.iconAsset}`}></span>}
@@ -173,8 +400,8 @@ const features = [
 								)}
 							</div>
 							<div class="feature-copy">
-								<h3>{feature.title}</h3>
-								<p>{feature.body}</p>
+								<h3 data-i18n={feature.titleKey}>{defaultMessages.features[index].title}</h3>
+								<p data-i18n={feature.bodyKey}>{defaultMessages.features[index].body}</p>
 							</div>
 							<img src={asset(feature.image)} alt="" width="170" height="170" />
 							<span class="flower flower-left" aria-hidden="true"></span>
@@ -187,17 +414,148 @@ const features = [
 			<section class="closing" id="help" aria-labelledby="closing-title">
 				<img src={asset("paused.webp")} alt="" width="210" height="210" />
 				<div>
-					<h2 id="closing-title">让每一次下载，<br />都变成一件愉快的小事。</h2>
-					<p>
-						<span>grabbit</span> 陪你一起，<br />
-						把想要的都轻松 <span>grab</span> 住
-					</p>
+					<h2 id="closing-title" data-i18n="closing.title" data-i18n-mode="html" set:html={defaultMessages.closing.title}></h2>
+					<p data-i18n="closing.body" data-i18n-mode="html" set:html={defaultMessages.closing.body}></p>
 				</div>
 				<img src={asset("downloaded.webp")} alt="" width="210" height="210" />
 			</section>
 
-			<div id="changelog" class="sr-only">更新日志</div>
+			<div id="changelog" class="sr-only" data-i18n="changelog">{defaultMessages.changelog}</div>
 		</main>
+
+		<script is:inline define:vars={{ messages, localeNames }}>
+			const storageKey = "grabbit-locale";
+			const validLocales = new Set(Object.keys(messages));
+			const localeSwitcher = document.querySelector("[data-language-switcher]");
+			const localeButtons = document.querySelectorAll("[data-locale-option]");
+
+			const normalizeLocale = (value) => {
+				if (!value) {
+					return undefined;
+				}
+
+				const normalized = String(value).toLowerCase();
+				if (normalized.startsWith("zh")) {
+					return "zh";
+				}
+
+				if (normalized.startsWith("ja")) {
+					return "ja";
+				}
+
+				if (normalized.startsWith("en")) {
+					return "en";
+				}
+
+				return undefined;
+			};
+
+			const getStoredLocale = () => {
+				try {
+					return normalizeLocale(localStorage.getItem(storageKey));
+				} catch {
+					return undefined;
+				}
+			};
+
+			const setStoredLocale = (locale) => {
+				try {
+					localStorage.setItem(storageKey, locale);
+				} catch {
+					// Ignore storage failures.
+				}
+			};
+
+			const pickLocale = () => {
+				const storedLocale = getStoredLocale();
+				if (storedLocale) {
+					return storedLocale;
+				}
+
+				const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
+				for (const candidate of candidates) {
+					const locale = normalizeLocale(candidate);
+					if (locale) {
+						return locale;
+					}
+				}
+
+				return "en";
+			};
+
+			const getPath = (source, path) =>
+				path.split(".").reduce((value, key) => {
+					if (!value || typeof value !== "object") {
+						return undefined;
+					}
+
+					return key in value ? value[key] : undefined;
+				}, source);
+
+			const applyLocale = (locale, { persist = false } = {}) => {
+				const nextLocale = validLocales.has(locale) ? locale : "en";
+				const strings = messages[nextLocale] ?? messages.en;
+
+				document.documentElement.lang = strings.htmlLang;
+				document.documentElement.dataset.locale = nextLocale;
+				document.title = strings.title;
+
+				const description = document.querySelector('meta[name="description"]');
+				if (description) {
+					description.setAttribute("content", strings.description);
+				}
+
+				document.querySelectorAll("[data-i18n]").forEach((node) => {
+					const key = node.dataset.i18n;
+					if (!key) {
+						return;
+					}
+
+					const value = getPath(strings, key) ?? getPath(messages.en, key);
+					if (typeof value !== "string") {
+						return;
+					}
+
+					const mode = node.dataset.i18nMode ?? "text";
+					if (mode === "html") {
+						node.innerHTML = value;
+					} else if (mode !== "attr") {
+						node.textContent = value;
+					}
+
+					const attr = node.dataset.i18nAttr;
+					if (attr) {
+						node.setAttribute(attr, value);
+					}
+				});
+
+				localeButtons.forEach((button) => {
+					const isActive = button.dataset.locale === nextLocale;
+					button.setAttribute("aria-pressed", String(isActive));
+				});
+
+				if (persist) {
+					setStoredLocale(nextLocale);
+				}
+
+				if (localeSwitcher) {
+					localeSwitcher.removeAttribute("open");
+				}
+			};
+
+			applyLocale(pickLocale());
+
+			localeButtons.forEach((button) => {
+				button.addEventListener("click", () => {
+					const nextLocale = normalizeLocale(button.dataset.locale);
+					if (!nextLocale) {
+						return;
+					}
+
+					applyLocale(nextLocale, { persist: true });
+				});
+			});
+		</script>
 	</body>
 </html>
 
@@ -226,8 +584,8 @@ const features = [
 		--violet: var(--brand-stone);
 		--shadow: 0 22px 70px color-mix(in srgb, var(--brand-brown) 18%, transparent);
 		font-family:
-			"Xiaolai SC", "LXGW WenKai", "Kaiti SC", "KaiTi", "Microsoft YaHei", "PingFang SC",
-			system-ui, sans-serif;
+			"Hiragino Sans", "Yu Gothic", "Meiryo", "Microsoft YaHei", "PingFang SC", "Xiaolai SC",
+			"LXGW WenKai", "Kaiti SC", "KaiTi", system-ui, sans-serif;
 		background: var(--cream);
 		color: var(--ink);
 	}
@@ -307,9 +665,9 @@ const features = [
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 38px;
-		font-family:
-			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+		gap: 18px;
+		justify-content: flex-end;
+		font-family: inherit;
 		font-size: 0.94rem;
 		color: var(--ink);
 	}
@@ -324,6 +682,118 @@ const features = [
 		gap: 8px;
 		color: var(--ink);
 		font-weight: 700;
+	}
+
+	.lang-switcher {
+		position: relative;
+		flex: 0 0 auto;
+	}
+
+	.lang-switcher > summary {
+		list-style: none;
+	}
+
+	.lang-switcher > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.lang-switcher-button {
+		display: grid;
+		place-items: center;
+		width: 24px;
+		height: 24px;
+		border: 0;
+		padding: 0;
+		background: transparent;
+		box-shadow: none;
+		color: var(--ink);
+		cursor: pointer;
+		transition:
+			transform 160ms ease,
+			opacity 160ms ease;
+	}
+
+	.lang-switcher-button:hover {
+		transform: translateY(-1px);
+		opacity: 0.84;
+	}
+
+	.lang-switcher-button:focus-visible {
+		outline: 2px solid var(--brand-orange);
+		outline-offset: 3px;
+	}
+
+	.lang-switcher-icon svg {
+		width: 24px;
+		height: 24px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.8;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.lang-switcher-menu {
+		position: absolute;
+		top: calc(100% + 10px);
+		right: 0;
+		z-index: 20;
+		display: grid;
+		gap: 6px;
+		min-width: 148px;
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		padding: 8px;
+		background: color-mix(in srgb, var(--brand-cream) 88%, white);
+		box-shadow: 0 18px 42px color-mix(in srgb, var(--brand-brown) 14%, transparent);
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-6px);
+		transition:
+			opacity 140ms ease,
+			transform 140ms ease;
+	}
+
+	.lang-switcher[open] .lang-switcher-menu {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	.lang-switcher-option {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		width: 100%;
+		border: 0;
+		border-radius: 10px;
+		padding: 9px 10px;
+		background: transparent;
+		color: var(--ink);
+		cursor: pointer;
+		font-size: 0.9rem;
+		font-weight: 800;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.lang-switcher-option:hover,
+	.lang-switcher-option[aria-pressed="true"] {
+		background: var(--brand-pink-soft);
+	}
+
+	.lang-switcher-option::after {
+		content: "";
+		flex: 0 0 auto;
+		width: 8px;
+		height: 8px;
+		border-radius: 999px;
+		background: transparent;
+	}
+
+	.lang-switcher-option[aria-pressed="true"]::after {
+		background: currentColor;
 	}
 
 	.github-icon {
@@ -391,8 +861,7 @@ const features = [
 		max-width: 510px;
 		margin: 0 0 34px;
 		color: var(--ink);
-		font-family:
-			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+		font-family: inherit;
 		font-size: 1rem;
 		line-height: 1.9;
 	}
@@ -414,8 +883,7 @@ const features = [
 		padding: 14px 18px;
 		background: color-mix(in srgb, var(--brand-cream) 82%, white);
 		color: var(--ink);
-		font-family:
-			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+		font-family: inherit;
 		box-shadow: 0 14px 35px color-mix(in srgb, var(--brand-brown) 8%, transparent);
 		cursor: pointer;
 		transition:
@@ -489,8 +957,7 @@ const features = [
 		gap: 8px;
 		margin: 34px 0 0;
 		color: var(--muted);
-		font-family:
-			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+		font-family: inherit;
 		font-size: 0.86rem;
 	}
 
@@ -627,8 +1094,7 @@ const features = [
 
 	.screenshot-placeholder strong,
 	.screenshot-placeholder span {
-		font-family:
-			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+		font-family: inherit;
 		line-height: 1.4;
 	}
 
@@ -766,8 +1232,7 @@ const features = [
 		margin: 0;
 		max-width: 300px;
 		color: var(--ink);
-		font-family:
-			"Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+		font-family: inherit;
 		font-size: 0.96rem;
 		line-height: 1.8;
 	}
@@ -878,7 +1343,7 @@ const features = [
 		}
 
 		.nav-links {
-			gap: 20px;
+			gap: 16px;
 		}
 
 		.hero {
@@ -910,6 +1375,12 @@ const features = [
 
 		.topbar {
 			align-items: flex-start;
+			flex-wrap: wrap;
+		}
+
+		.nav-links {
+			gap: 12px;
+			margin-left: auto;
 		}
 
 		.hero {
@@ -991,6 +1462,15 @@ const features = [
 
 		.brand {
 			font-size: 1.4rem;
+		}
+
+		.nav-links {
+			gap: 10px;
+		}
+
+		.lang-switcher-button {
+			width: 24px;
+			height: 24px;
 		}
 
 		.hero-copy h1 {
